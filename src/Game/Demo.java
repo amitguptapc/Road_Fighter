@@ -31,6 +31,8 @@ public class Demo implements KeyListener {
       e.printStackTrace();
     }
     frame.setLocationRelativeTo(null);
+    frame.setResizable(false);
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     Graphics g=panel.getGraphics();
     panel.setFocusable(true);
     panel.requestFocus();
@@ -73,7 +75,7 @@ public class Demo implements KeyListener {
     Image carShown=null;
     boolean traffic=false;
     int xcord=287;
-    int carNum=1,laneNum=1,onLane=1;
+    int carNum,laneNum,onLane=1;
     Rectangle myCarRect=new Rectangle(110,200);
     Rectangle shownCarRect=new Rectangle(110,200);
     theme.loop();
