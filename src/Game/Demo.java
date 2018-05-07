@@ -6,6 +6,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
@@ -89,13 +90,15 @@ public class Demo implements KeyListener {
       e.printStackTrace();
     }
 
-    // theme.loop();
+   Image bigImage=new BufferedImage(660,790,BufferedImage.TYPE_INT_RGB);
+    Graphics imageGraphics=bigImage.getGraphics();
     while(true) {
       try {
         Thread.sleep(70);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
+      g.drawImage(bigImage,0,0,null);
       if(Demo.crashCount==1&&Demo.crashed){
         continue;
       }
@@ -108,7 +111,7 @@ public class Demo implements KeyListener {
         traffic=false;
       }
       if(Demo.paused){
-        g.drawImage(pauseImage,200,280,null);
+        imageGraphics.drawImage(pauseImage,200,280,null);
         continue;
       }
 
@@ -151,19 +154,19 @@ public class Demo implements KeyListener {
       road2YCord+=20;
       if(road2YCord>833)
         road2YCord=-833;
-      g.drawImage(road1Image, 0, road1YCord, null);
-      g.drawImage(road2Image, 0, road2YCord, null);
-      g.drawImage(carShown, onLane, yCord, null);
-      g.drawImage(myCarImage, xcord, 575, null);
+      imageGraphics.drawImage(road1Image, 0, road1YCord, null);
+      imageGraphics.drawImage(road2Image, 0, road2YCord, null);
+      imageGraphics.drawImage(carShown, onLane, yCord, null);
+      imageGraphics.drawImage(myCarImage, xcord, 575, null);
 
-      g.setColor(Color.BLACK);
-      g.setFont(new Font("Arial",Font.BOLD,16));
-      g.drawString("Your Score ",567,33);
-      g.setFont(new Font("Arial",Font.BOLD,20));
-      g.drawString(Demo.score+"",595,60);
+      imageGraphics.setColor(Color.BLACK);
+      imageGraphics.setFont(new Font("Arial",Font.BOLD,16));
+      imageGraphics.drawString("Your Score ",567,33);
+      imageGraphics.setFont(new Font("Arial",Font.BOLD,20));
+      imageGraphics.drawString(Demo.score+"",595,60);
 
       if(shownCarRect.intersects(myCarRect)){
-        g.drawImage(crashImage,180,230,null);
+        imageGraphics.drawImage(crashImage,180,230,null);
         Demo.crashed=true;
         Demo.crashCount=1;
         crash.play();
