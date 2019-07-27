@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="RoadFighter:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/RoadFighter_jar</output-path>
-    <root id="archive" name="RoadFighter.jar">
-      <element id="module-output" name="RoadFighter" />
-    </root>
-  </artifact>
-</component>

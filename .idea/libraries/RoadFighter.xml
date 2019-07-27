@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RoadFighter">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/RoadFighter_jar/RoadFighter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
